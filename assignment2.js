@@ -10,20 +10,27 @@ Array.prototype.myEach = function(callbackFn) {
     }
 };
 
-// TEST
-console.log("myEach: ") ;
-arr.myEach( x => console.log(x) );
+// // TEST
+// console.log("myEach: ") ;
+// arr.myEach( x => console.log(x) );
 
-console.log("forEach: ");
-arr.forEach( x => console.log(x) );
+// console.log("forEach: ");
+// arr.forEach( x => console.log(x) );
 
-const isEven = (number) => console.log(number%2 === 0);
+// const isEven = (number) => console.log(number%2 === 0);
 
-console.log("myEach(isEven): ");
-arr.myEach(isEven);
+// console.log("myEach(isEven): ");
+// arr.myEach(isEven);
 
-console.log("forEach(isEven): ");
-arr.forEach(isEven);
+// console.log("forEach(isEven): ");
+// arr.forEach(isEven);
+
+// console.log("includes 3");
+// console.log(arr.includes(3));
+
+// console.log("myIncludes 3");
+// console.log(arr.myIncludes(3));
+
 
 // MAP //
 Array.prototype.myMap = function() {
@@ -51,8 +58,12 @@ Array.prototype.myReduce = function() {
 };
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
-
+Array.prototype.myIncludes = function(x) {
+    let i = this.length;
+    while (i--) {
+        if (this[i] === x) return true;
+    }
+    return false;
 };
 
 // INDEXOF //
