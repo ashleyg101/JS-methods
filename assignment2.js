@@ -60,29 +60,41 @@ Array.prototype.myEach = function(callbackFn) {
 // console.log(Object.grabValues(testMap));
 
 // MAP //
-Array.prototype.myMap = function() {
-
+Array.prototype.myMap = function(callbackFn) {
+    const newArray = [];
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === undefined) continue;
+        (callbackFn(this[i], i, this));
+        newArray.push(callbackFn(this[i]));  
+    }
+    return newArray;  
 };
 
-// FILTER //
-Array.prototype.myFilter = function() {
+// TEST 
+const twice = (number) => (number*2);
+console.log("myMap: ");
+console.log(arr.myMap(twice));
+console.log(arr);
 
-};
+// // FILTER //
+// Array.prototype.myFilter = function() {
 
-// SOME //
-Array.prototype.mySome = function() {
+// };
 
-};
+// // SOME //
+// Array.prototype.mySome = function() {
 
-// EVERY //
-Array.prototype.myEvery = function() {
+// };
 
-};
+// // EVERY //
+// Array.prototype.myEvery = function() {
 
-// REDUCE //
-Array.prototype.myReduce = function() {
+// };
 
-};
+// // REDUCE //
+// Array.prototype.myReduce = function() {
+
+// };
 
 // INCLUDES //
 Array.prototype.myIncludes = function(x) {
@@ -101,6 +113,7 @@ Array.prototype.myIndexOf = function(x) {
     }
     return -1;
 };
+
 
 // PUSH //
 Array.prototype.myPush = function(...args) {
