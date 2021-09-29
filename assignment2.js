@@ -136,4 +136,10 @@ Object.grabKeys = function(x) {
 
 // VALUES //
 Object.grabValues = function(x) {
+    let output = [];
+    for (key in x) {
+        if (x === undefined) continue;
+        output.push(x[key]);
+    }
+    return output;
 };
