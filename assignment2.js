@@ -26,39 +26,51 @@ console.log("forEach(isEven): ");
 arr.forEach(isEven);
 
 // MAP //
-Array.prototype.myMap = function() {
-
+Array.prototype.myMap = function(callbackFn) {
+    const newArray = [];
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === undefined) continue;
+        (callbackFn(this[i], i, this));
+        newArray.push(callbackFn(this[i]));  
+    }
+    return newArray;  
 };
 
-// FILTER //
-Array.prototype.myFilter = function() {
+// TEST 
+const twice = (number) => (number*2);
+console.log("myMap: ");
+console.log(arr.myMap(twice));
+console.log(arr);
 
-};
+// // FILTER //
+// Array.prototype.myFilter = function() {
 
-// SOME //
-Array.prototype.mySome = function() {
+// };
 
-};
+// // SOME //
+// Array.prototype.mySome = function() {
 
-// EVERY //
-Array.prototype.myEvery = function() {
+// };
 
-};
+// // EVERY //
+// Array.prototype.myEvery = function() {
 
-// REDUCE //
-Array.prototype.myReduce = function() {
+// };
 
-};
+// // REDUCE //
+// Array.prototype.myReduce = function() {
 
-// INCLUDES //
-Array.prototype.myIncludes = function() {
+// };
 
-};
+// // INCLUDES //
+// Array.prototype.myIncludes = function() {
 
-// INDEXOF //
-Array.prototype.myIndexOf = function() {
+// };
 
-};
+// // INDEXOF //
+// Array.prototype.myIndexOf = function() {
+
+// };
 
 // PUSH //
 Array.prototype.myPush = function(...args) {
@@ -77,17 +89,17 @@ console.log("myPush: ");
 arr.myPush(4,5,6);
 console.log(arr);
 
-// LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
+// // LASTINDEXOF //
+// Array.prototype.myLastIndexOf = function() {
 
-};
+// };
 
-// KEYS //
-Object.grabKeys = function() {
+// // KEYS //
+// Object.grabKeys = function() {
 
-};
+// };
 
-// VALUES //
-Object.grabValues = function() {
+// // VALUES //
+// Object.grabValues = function() {
 
-};
+// };
