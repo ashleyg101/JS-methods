@@ -31,6 +31,12 @@ Array.prototype.myEach = function(callbackFn) {
 // console.log("myIncludes 3");
 // console.log(arr.myIncludes(3));
 
+// console.log("index of 3");
+// console.log(arr.indexOf(3));
+
+// console.log("myIndexOf 3");
+// console.log(arr.myIndexOf(3));
+
 
 // MAP //
 Array.prototype.myMap = function() {
@@ -67,8 +73,12 @@ Array.prototype.myIncludes = function(x) {
 };
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
-
+Array.prototype.myIndexOf = function(x) {
+    for (i  = 0; i < this.length; i++) {
+        if (this === undefined) continue;
+        if (this[i] === x) return i;
+    }
+    return -1;
 };
 
 // PUSH //
