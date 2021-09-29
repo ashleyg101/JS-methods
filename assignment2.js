@@ -1,6 +1,7 @@
 
 
 const arr = [1,2,3,1];
+const testMap = {"a":1, "b":2, "c":3};
 
 // FOR EACH //
 Array.prototype.myEach = function(callbackFn) {
@@ -10,38 +11,53 @@ Array.prototype.myEach = function(callbackFn) {
     }
 };
 
-// // TEST
+// TESTS //
+
+// forEach //
 // console.log("myEach: ") ;
 // arr.myEach( x => console.log(x) );
-
 // console.log("forEach: ");
 // arr.forEach( x => console.log(x) );
-
 // const isEven = (number) => console.log(number%2 === 0);
-
 // console.log("myEach(isEven): ");
 // arr.myEach(isEven);
-
 // console.log("forEach(isEven): ");
 // arr.forEach(isEven);
 
+// myIncludes //
 // console.log("includes 3");
 // console.log(arr.includes(3));
-
 // console.log("myIncludes 3");
 // console.log(arr.myIncludes(3));
 
+// myIndexOf //
 // console.log("index of 1");
 // console.log(arr.indexOf(1));
-
 // console.log("myIndexOf 1");
 // console.log(arr.myIndexOf(1));
 
+// myPush //
+// console.log("myPush: ");
+// arr.myPush(4,5,6);
+// console.log(arr);
+
+// myLastIndexOf //
 // console.log("last index of 1");
 // console.log(arr.lastIndexOf(1));
-
 // console.log("myLastIndexOf 1");
 // console.log(arr.myLastIndexOf(3));
+
+// grabKeys //
+// console.log("myMap keys");
+// console.log(Object.keys(testMap));
+// console.log("myMap grabKeys");
+// console.log(Object.grabKeys(testMap));
+
+// grabValues //
+// console.log("myMap values");
+// console.log(Object.values(testMap));
+// console.log("myMap getValues");
+// console.log(Object.grabValues(testMap));
 
 // MAP //
 Array.prototype.myMap = function() {
@@ -98,11 +114,6 @@ Array.prototype.myPush = function(...args) {
     return this.length;
 };
 
-// TEST //
-console.log("myPush: ");
-arr.myPush(4,5,6);
-console.log(arr);
-
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(x) {
     let i = this.length;
@@ -114,11 +125,15 @@ Array.prototype.myLastIndexOf = function(x) {
 };
 
 // KEYS //
-Object.grabKeys = function() {
-
+Object.grabKeys = function(x) {
+    let output = [];
+    for (key in x) {
+        if (x === undefined) continue;
+        output.push(key);
+    }
+    return output; 
 };
 
 // VALUES //
-Object.grabValues = function() {
-
+Object.grabValues = function(x) {
 };
