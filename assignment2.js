@@ -61,9 +61,21 @@ Array.prototype.myIndexOf = function() {
 };
 
 // PUSH //
-Array.prototype.myPush = function() {
+Array.prototype.myPush = function(...args) {
+    let arg_i = 0;
+    let length = this.length;
 
+    for(let i = length; i < length + args.length; i++) {
+        this[i] = args[arg_i];
+        arg_i++;
+    }
+    return this.length;
 };
+
+// TEST //
+console.log("myPush: ");
+arr.myPush(4,5,6);
+console.log(arr);
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function() {
