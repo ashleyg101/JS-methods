@@ -1,6 +1,6 @@
 
 
-const arr = [1,2,3];
+const arr = [1,2,3,1];
 
 // FOR EACH //
 Array.prototype.myEach = function(callbackFn) {
@@ -31,12 +31,17 @@ Array.prototype.myEach = function(callbackFn) {
 // console.log("myIncludes 3");
 // console.log(arr.myIncludes(3));
 
-// console.log("index of 3");
-// console.log(arr.indexOf(3));
+// console.log("index of 1");
+// console.log(arr.indexOf(1));
 
-// console.log("myIndexOf 3");
-// console.log(arr.myIndexOf(3));
+// console.log("myIndexOf 1");
+// console.log(arr.myIndexOf(1));
 
+// console.log("last index of 1");
+// console.log(arr.lastIndexOf(1));
+
+// console.log("myLastIndexOf 1");
+// console.log(arr.myLastIndexOf(3));
 
 // MAP //
 Array.prototype.myMap = function() {
@@ -99,8 +104,13 @@ arr.myPush(4,5,6);
 console.log(arr);
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
-
+Array.prototype.myLastIndexOf = function(x) {
+    let i = this.length;
+    while (i--) {
+        if (this === undefined) continue;
+        if (this[i] === x) return i;
+    }
+    return -1;
 };
 
 // KEYS //
