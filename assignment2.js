@@ -1,9 +1,29 @@
 
 
-// FOR EACH //
-Array.prototype.myEach = function() {
+const arr = [1,2,3];
 
+// FOR EACH //
+Array.prototype.myEach = function(callbackFn) {
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === undefined) continue;
+        callbackFn(this[i], i, this);
+    }
 };
+
+// TEST
+console.log("myEach: ") ;
+arr.myEach( x => console.log(x) );
+
+console.log("forEach: ");
+arr.forEach( x => console.log(x) );
+
+const isEven = (number) => console.log(number%2 === 0);
+
+console.log("myEach(isEven): ");
+arr.myEach(isEven);
+
+console.log("forEach(isEven): ");
+arr.forEach(isEven);
 
 // MAP //
 Array.prototype.myMap = function() {
