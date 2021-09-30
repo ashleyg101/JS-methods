@@ -24,6 +24,12 @@ Array.prototype.myEach = function(callbackFn) {
 // console.log("forEach(isEven): ");
 // arr.forEach(isEven);
 
+// myMap //
+// const twice = (number) => (number*2);
+// console.log("myMap: ");
+// console.log(arr.myMap(twice));
+// console.log(arr);
+
 // myIncludes //
 // console.log("includes 3");
 // console.log(arr.includes(3));
@@ -69,12 +75,6 @@ Array.prototype.myMap = function(callbackFn) {
     }
     return newArray;  
 };
-
-// TEST 
-const twice = (number) => (number*2);
-console.log("myMap: ");
-console.log(arr.myMap(twice));
-console.log(arr);
 
 // // FILTER //
 // Array.prototype.myFilter = function() {
