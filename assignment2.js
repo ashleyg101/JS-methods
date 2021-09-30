@@ -1,4 +1,5 @@
 
+// Implementation of functions to recreate basic JavaScript methods 
 
 const arr = [1,2,3,1];
 
@@ -9,39 +10,6 @@ Array.prototype.myEach = function(callbackFn) {
         callbackFn(this[i], i, this);
     }
 };
-
-// // TEST
-// console.log("myEach: ") ;
-// arr.myEach( x => console.log(x) );
-
-// console.log("forEach: ");
-// arr.forEach( x => console.log(x) );
-
-// const isEven = (number) => console.log(number%2 === 0);
-
-// console.log("myEach(isEven): ");
-// arr.myEach(isEven);
-
-// console.log("forEach(isEven): ");
-// arr.forEach(isEven);
-
-// console.log("includes 3");
-// console.log(arr.includes(3));
-
-// console.log("myIncludes 3");
-// console.log(arr.myIncludes(3));
-
-// console.log("index of 1");
-// console.log(arr.indexOf(1));
-
-// console.log("myIndexOf 1");
-// console.log(arr.myIndexOf(1));
-
-// console.log("last index of 1");
-// console.log(arr.lastIndexOf(1));
-
-// console.log("myLastIndexOf 1");
-// console.log(arr.myLastIndexOf(3));
 
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
@@ -54,16 +22,18 @@ Array.prototype.myMap = function(callbackFn) {
     return newArray;  
 };
 
-// TEST 
-const twice = (number) => (number*2);
-console.log("myMap: ");
-console.log(arr.myMap(twice));
-console.log(arr);
-
-// // FILTER //
-// Array.prototype.myFilter = function() {
-
-// };
+// FILTER //
+Array.prototype.myFilter = function(callbackFn) {
+    const newArray = [];
+    for (let i = 0; i < this.length; i++) {
+        if(this[i] === undefined) continue;
+        if (callbackFn(this[i], i, this)) {
+            newArray.push(callbackFn(this[i]));
+        }
+        else continue;
+    }
+    return newArray;
+};
 
 // // SOME //
 // Array.prototype.mySome = function() {
@@ -111,11 +81,6 @@ Array.prototype.myPush = function(...args) {
     return this.length;
 };
 
-// TEST //
-console.log("myPush: ");
-arr.myPush(4,5,6);
-console.log(arr);
-
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(x) {
     let i = this.length;
@@ -126,7 +91,6 @@ Array.prototype.myLastIndexOf = function(x) {
     return -1;
 };
 
-
 // // KEYS //
 // Object.grabKeys = function() {
 
@@ -136,3 +100,52 @@ Array.prototype.myLastIndexOf = function(x) {
 // Object.grabValues = function() {
 
 // };
+
+// ----------- METHOD TESTS  ----------- //
+
+// FOR EACH //
+console.log("myEach: ") ;
+arr.myEach( x => console.log(x) );
+const isEven = (number) => console.log(number%2 === 0);
+console.log("myEach(isEven): ");
+arr.myEach(isEven);
+console.log("forEach(isEven): ");
+arr.forEach(isEven);
+
+// MAP //
+const twice = (number) => (number*2);
+console.log("myMap: ");
+console.log(arr.myMap(twice));
+console.log(arr);
+
+// FILTER //
+function greaterThan(number) {
+    if (number > 1) {
+        return number;
+    }
+ }
+console.log("myFilter: ");
+console.log(arr.myFilter(greaterThan));
+
+// INCLUDES //
+console.log("includes 3");
+console.log(arr.includes(3));
+console.log("myIncludes 3");
+console.log(arr.myIncludes(3));
+
+// INDEX OF //
+console.log("index of 1");
+console.log(arr.indexOf(1));
+console.log("myIndexOf 1");
+console.log(arr.myIndexOf(1));
+
+// PUSH //
+console.log("myPush: ");
+arr.myPush(4,5,6);
+console.log(arr);
+
+// LAST INDEX OF //
+console.log("last index of 1");
+console.log(arr.lastIndexOf(1));
+console.log("myLastIndexOf 1");
+console.log(arr.myLastIndexOf(3));
