@@ -1,7 +1,7 @@
 
 # Practical Web Development
-Prof. Melissa Lynch
-Section 1 - Thursdays 5:35 - 8:15PM
+Prof. Melissa Lynch  
+Section 1 - Thursdays 5:35 - 8:15PM  
 Fall 2021
 
 ## Contributors:
