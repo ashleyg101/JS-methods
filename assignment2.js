@@ -1,8 +1,10 @@
 
-// Implementation of functions to recreate basic JavaScript methods 
+// Implementation of functions to recreate native JavaScript methods 
 
 const arr = [1,2,3,1];
 const testMap = {"a":1, "b":2, "c":3};
+console.log("array: ");
+console.log(arr);
 
 // FOR EACH //
 Array.prototype.myEach = function(callbackFn) {
@@ -17,8 +19,8 @@ Array.prototype.myMap = function(callbackFn) {
     const newArray = [];
     for (let i = 0; i < this.length; i++) {
         if (this[i] === undefined) continue;
-        (callbackFn(this[i], i, this));
-        newArray.push(callbackFn(this[i]));  
+        callbackFn(this[i], i, this);
+        newArray.push(callbackFn(this[i]));
     }
     return newArray;  
 };
@@ -36,10 +38,18 @@ Array.prototype.myFilter = function(callbackFn) {
     return newArray;
 };
 
-// // SOME //
-// Array.prototype.mySome = function() {
-
-// };
+// SOME //
+Array.prototype.mySome = function(callbackFn) {
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === undefined) continue;
+        if (callbackFn(this[i], i, this)) {
+            console.log("element that is true: ", this[i]);
+            console.log("index of element: ", i);
+            return true;
+        }
+    }
+    return false;
+};
 
 // // EVERY //
 // Array.prototype.myEvery = function() {
@@ -136,6 +146,15 @@ Object.grabValues = function(x) {
 //  }
 // console.log("myFilter: ");
 // console.log(arr.myFilter(greaterThan));
+
+// // mySome //
+// const numEquals4 = (number) => (number === 4);
+// const numEquals3 = (number) => (number === 3);
+// console.log("mySome: ");
+// console.log("element = 4");
+// console.log(arr.mySome(numEquals4));
+// console.log("element = 3");
+// console.log(arr.mySome(numEquals3));
 
 // // myIncludes //
 // console.log("includes 3");
