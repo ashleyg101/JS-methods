@@ -82,8 +82,18 @@ Array.prototype.myIncludes = function(x) {
 };
 
 // INDEXOF //
-Array.prototype.myIndexOf = function(x) {
-    for (i  = 0; i < this.length; i++) {
+Array.prototype.myIndexOf = function(x, n) {
+    let i;
+    if (n === undefined || n >= this.length) {
+        i = 0;
+    }
+    else if (n < 0) {
+        i = this.length + n;
+    }
+    else {          
+        i = n;
+    }
+    for (i; i < this.length; i++) {
         if (this === undefined) continue;
         if (this[i] === x) return i;
     }
@@ -107,6 +117,10 @@ Array.prototype.myLastIndexOf = function(x, n) {
     let i;
     if (n === undefined || n > this.length) {
         i = this.length;
+    }
+    else if (n < 0)
+    {
+        i = this.length + 1 + n;
     }
     else {
         i = n;
@@ -193,6 +207,14 @@ Object.grabValues = function(x) {
 // console.log(arr.indexOf(1));
 // console.log("myIndexOf 1");
 // console.log(arr.myIndexOf(1));
+// console.log("index of 1, last index = 2");
+// console.log(arr.indexOf(1,2));
+// console.log("myIndexOf 1 last index = 2");
+// console.log(arr.myIndexOf(1,2));
+// console.log("index of 1, last index = -4");
+// console.log(arr.indexOf(1,-4));
+// console.log("myIndexOf 1 last index = -4");
+// console.log(arr.myIndexOf(1,-4));   
 
 // // myPush //
 // console.log("myPush: ");
@@ -201,9 +223,17 @@ Object.grabValues = function(x) {
 
 // // myLastIndexOf //
 // console.log("last index of 1");
-// console.log(arr.lastIndexOf(1, 2));
+// console.log(arr.lastIndexOf(1));
 // console.log("myLastIndexOf 1");
+// console.log(arr.myLastIndexOf(1));
+// console.log("last index of 1, last index = 2");
+// console.log(arr.lastIndexOf(1, 2));
+// console.log("myLastIndexOf 1, last index = 2");
 // console.log(arr.myLastIndexOf(1 ,2));
+// console.log("last index of 1, lastindex = -1");
+// console.log(arr.lastIndexOf(1, -1));
+// console.log("myLastIndexOf 1, last index = -1");
+// console.log(arr.myLastIndexOf(1 ,-1));
 
 // // grabKeys //
 // console.log("myMap keys");
