@@ -103,8 +103,14 @@ Array.prototype.myPush = function(...args) {
 };
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function(x) {
-    let i = this.length;
+Array.prototype.myLastIndexOf = function(x, n) {
+    let i;
+    if (n === undefined || n > this.length) {
+        i = this.length;
+    }
+    else {
+        i = n;
+    }
     while (i--) {
         if (this === undefined) continue;
         if (this[i] === x) return i;
@@ -195,9 +201,9 @@ Object.grabValues = function(x) {
 
 // // myLastIndexOf //
 // console.log("last index of 1");
-// console.log(arr.lastIndexOf(1));
+// console.log(arr.lastIndexOf(1, 2));
 // console.log("myLastIndexOf 1");
-// console.log(arr.myLastIndexOf(3));
+// console.log(arr.myLastIndexOf(1 ,2));
 
 // // grabKeys //
 // console.log("myMap keys");
