@@ -73,9 +73,20 @@ Array.prototype.myEvery = function(callbackFn) {
 // };
 
 // INCLUDES //
-Array.prototype.myIncludes = function(x) {
-    let i = this.length;
-    while (i--) {
+Array.prototype.myIncludes = function(x, n) {
+    let i;
+    if (n === undefined || n >= this.length)
+    {
+        i = 0;
+    }
+    else if (n < 0) {
+        i = this.length + n;
+    }
+    else {
+        i = n;
+    }
+    for (i; i < this.length; i++) {
+        if (this === undefined) continue;
         if (this[i] === x) return true;
     }
     return false;
@@ -201,6 +212,14 @@ Object.grabValues = function(x) {
 // console.log(arr.includes(3));
 // console.log("myIncludes 3");
 // console.log(arr.myIncludes(3));
+// console.log("includes 3, starting at index 3");
+// console.log(arr.includes(3,3));
+// console.log("myIncludes 3, starting at index 3");
+// console.log(arr.myIncludes(3,3));
+// console.log("includes 3, starting at index -1");
+// console.log(arr.includes(3,-1));
+// console.log("myIncludes 3, starting at index -1");
+// console.log(arr.myIncludes(3,-1));
 
 // // myIndexOf //
 // console.log("index of 1");
