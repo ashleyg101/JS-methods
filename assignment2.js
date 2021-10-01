@@ -51,10 +51,21 @@ Array.prototype.mySome = function(callbackFn) {
     return false;
 };
 
-// // EVERY //
-// Array.prototype.myEvery = function() {
-
-// };
+// EVERY //
+Array.prototype.myEvery = function(callbackFn) {
+    let i = 0;
+    while (i < this.length) {
+        if (callbackFn(this[i], i, this)) {
+            i++;
+        }
+        else {
+            console.log("first element that is not true: ", this[i]);
+            console.log("index of element: ", i);
+            return false
+        }
+    }
+    return true;
+};
 
 // // REDUCE //
 // Array.prototype.myReduce = function() {
@@ -155,6 +166,15 @@ Object.grabValues = function(x) {
 // console.log(arr.mySome(numEquals4));
 // console.log("element = 3");
 // console.log(arr.mySome(numEquals3));
+
+// // myEvery //
+// const lessThan = (number) => (number < 3);
+// const greaterThan = (number) => (number > 0);
+// console.log("myEvery: ");
+// console.log("every element is less than 3: ")
+// console.log(arr.myEvery(lessThan));
+// console.log("every element is greater than 0: ")
+// console.log(arr.myEvery(greaterThan));
 
 // // myIncludes //
 // console.log("includes 3");
