@@ -67,10 +67,26 @@ Array.prototype.myEvery = function(callbackFn) {
     return true;
 };
 
-// // REDUCE //
-// Array.prototype.myReduce = function() {
+// REDUCE //
+Array.prototype.myReduce = function(callbackFn) {
+    let i = 1;
+    let currentValue = this[i];
+    let previousValue = this[i-1];
 
-// };
+    while (i < this.length+1) {
+        let value = callbackFn(previousValue, currentValue);
+        previousValue = value;
+        //if (currentValue = this.length ) 
+        console.log(previousValue);
+        i++;
+    }
+  
+};
+
+// myReduce //
+console.log("myReduce: ");
+const reducer = (previousValue, currentValue) => previousValue + currentValue;
+console.log(arr.myReduce(reducer));
 
 // INCLUDES //
 Array.prototype.myIncludes = function(x) {
